@@ -12,10 +12,16 @@ export const registry = {
         remoteName: 'mfe2',
         exposedModule: './web-components'
     }),
-    monolithic: () => loadRemoteModule({
+    // monolithic: () => loadRemoteModule({
+    //     type: 'script',
+    //     remoteEntry: 'http://localhost:4203/remoteEntry.js',
+    //     remoteName: 'monolithic',
+    //     exposedModule: './web-components'
+    // })
+    mfe3: () => loadRemoteModule({
         type: 'script',
-        remoteEntry: 'http://localhost:4203/remoteEntry.js',
-        remoteName: 'monolithic',
+        remoteEntry: 'http://localhost:4205/remoteEntry.js',
+        remoteName: 'mfe3',
         exposedModule: './web-components'
-    })
+    }),
 };
