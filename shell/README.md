@@ -1,27 +1,46 @@
 # Shell
 
-This project was generated with [Angular CLI](https://github.com/angular/angular-cli) version 11.0.0-rc.1.
+Create new path inside app.module.ts
+    {
+        path: 'poll',
+        loadChildren: () => import('./poll/poll.module').then(m => m.PollModule),
+    }
 
-## Development server
+inside poll.component.html
+<!DOCTYPE html>
+<html lang="en">
 
-Run `ng serve` for a dev server. Navigate to `http://localhost:4200/`. The app will automatically reload if you change any of the source files.
+<head>
+</head>
 
-## Code scaffolding
+<body>
+    <framework-poll></framework-poll>
+</body>
 
-Run `ng generate component component-name` to generate a new component. You can also use `ng generate directive|pipe|service|class|guard|interface|enum|module`.
+</html>
 
-## Build
+Inside poll.component.ts, add this.
 
-Run `ng build` to build the project. The build artifacts will be stored in the `dist/` directory. Use the `--prod` flag for a production build.
+  ngOnInit(): void {
+    if (!document.getElementById('importednative-shim')) {
+      this.importJS('native-shim');
+      this.importJS('framework-poll');
+    }
+  }
 
-## Running unit tests
+  ngOnDestroy(): void {
+    this.remoteJS('native-shim');
+    this.remoteJS('framework-poll');
+  }
 
-Run `ng test` to execute the unit tests via [Karma](https://karma-runner.github.io).
+  importJS(name) {
+    let script = document.createElement('script');
+    script.type = "text/javascript";
+    script.id = 'imported' + name;
+    script.src = 'assets/js/' + name + '.js';
+    document.getElementsByTagName('head')[0].appendChild(script);
+  }
 
-## Running end-to-end tests
-
-Run `ng e2e` to execute the end-to-end tests via [Protractor](http://www.protractortest.org/).
-
-## Further help
-
-To get more help on the Angular CLI use `ng help` or go check out the [Angular CLI Overview and Command Reference](https://angular.io/cli) page.
+  remoteJS(name) {
+    document.getElementById('imported' + name).remove();
+  }
