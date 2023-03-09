@@ -15,20 +15,17 @@ import { RouterModule } from '@angular/router';
   declarations: [
     AppComponent
   ],
-  entryComponents: [
-    AppComponent,
-  ],
   providers: [],
-  bootstrap: [AppComponent]
+  bootstrap: []
 })
 export class AppModule {
-  // constructor(private injector: Injector) {
-  //   const ce = createCustomElement(AppComponent, { injector: this.injector });
-  //   customElements.define('monolithic-element', ce);
-  // }
+  constructor(private injector: Injector) {
+  }
 
-  // ngDoBootstrap() {
-  // }
+  ngDoBootstrap() {
+    const ce = createCustomElement(AppComponent, {injector: this.injector});
+    customElements.define('monolithic-element', ce);
+  }
 
 }
 

@@ -21,7 +21,7 @@ module.exports = {
       name: "monolithic",
       filename: "remoteEntry.js",
       exposes: {
-        './web-components': './src/app/app.module.ts', // bootstrap --> main --> AppModule --> WebComp
+        './web-components': './src/bootstrap.ts', // bootstrap --> main --> AppModule --> WebComp
       },
 
       // For hosts (please adjust)

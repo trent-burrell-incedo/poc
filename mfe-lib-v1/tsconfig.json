@@ -5,7 +5,7 @@
     "outDir": "./dist/out-tsc",
     "sourceMap": true,
     "declaration": false,
-    "module": "ESNext",
+    "module": "es2015",
     "moduleResolution": "node",
     "emitDecoratorMetadata": true,
     "experimentalDecorators": true,
@@ -16,6 +16,14 @@
     "lib": [
       "es2017",
       "dom"
-    ]
+    ],
+    "paths": {
+      "mfe-library-v1": [
+        "dist/mfe-library-v1"
+      ],
+      "mfe-library-v1/*": [
+        "dist/mfe-library-v1/*"
+      ]
+    }
   }
 }
