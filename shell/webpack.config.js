@@ -28,7 +28,7 @@ module.exports = {
 
         // // React: loaded as script file
         // 'mfe4': "script mfe4@http://localhost:4204/remoteEntry.js",
-        'monolithic': "http://localhost:4203/remoteEntry.js",
+        // 'monolithic': "http://localhost:4203/remoteEntry.js",
       },
       shared: ["@angular/core", "@angular/common", "@angular/router"]
     })
