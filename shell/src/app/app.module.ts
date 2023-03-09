@@ -18,8 +18,8 @@ import { MfeLibraryV1Module } from 'mfe-library-v1';
       { matcher: startsWith('mfe2'), component: WrapperComponent, data: { importName: 'mfe2', elementName: 'mfe2-element' } },
       // { matcher: startsWith('monolithic'), component: WrapperComponent, data: { importName: 'monolithic', elementName: 'monolithic-element' } },
       {
-        path: 'monolithic',
-        loadChildren: () => import('mfe-library-v1').then(m => m.MfeLibraryV1Module),
+        path: 'poll',
+        loadChildren: () => import('./poll/poll.module').then(m => m.PollModule),
       }
     ])
   ],

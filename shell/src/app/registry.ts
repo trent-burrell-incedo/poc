@@ -18,10 +18,10 @@ export const registry = {
     //     remoteName: 'monolithic',
     //     exposedModule: './web-components'
     // })
-    mfe3: () => loadRemoteModule({
-        type: 'script',
-        remoteEntry: 'http://localhost:4205/remoteEntry.js',
-        remoteName: 'mfe3',
-        exposedModule: './web-components'
-    }),
+    // monolithic: () => loadRemoteModule({
+    //     type: 'script',
+    //     remoteEntry: 'http://127.0.0.1:8080/framework-poll.js',
+    //     remoteName: 'monolithic',
+    //     exposedModule: './web-components'
+    // }),
 };
