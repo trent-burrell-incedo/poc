@@ -7,6 +7,8 @@ import { Component, OnInit, OnDestroy } from '@angular/core';
 })
 export class PollComponent implements OnInit, OnDestroy {
 
+  userName: string = 'abcde';
+
   constructor() { }
 
   ngOnInit(): void {

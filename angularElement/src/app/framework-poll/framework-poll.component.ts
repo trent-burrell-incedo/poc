@@ -1,4 +1,4 @@
-import { Component, OnInit } from '@angular/core';
+import { Component, Input, OnInit } from '@angular/core';
 
 @Component({
   selector: 'app-framework-poll',
@@ -6,6 +6,7 @@ import { Component, OnInit } from '@angular/core';
   styleUrls: ['./framework-poll.component.css']
 })
 export class FrameworkPollComponent implements OnInit {
+  @Input() userName: string = '';
 
   constructor() { }
 

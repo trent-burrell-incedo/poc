@@ -7,7 +7,7 @@ import { registry } from '../registry';
 })
 export class WrapperComponent implements AfterContentInit {
 
-  @ViewChild('vc', {read: ElementRef, static: true})
+  @ViewChild('vc', { read: ElementRef, static: true })
   vc: ElementRef;
 
   constructor(private route: ActivatedRoute) { }
@@ -19,7 +19,9 @@ export class WrapperComponent implements AfterContentInit {
 
     const importFn = registry[importName];
     importFn()
-      .then(_ => console.debug(`element ${elementName} loaded!`))
+      .then(_component => {
+        console.log('_component', _component);
+      })
       .catch(err => console.error(`error loading ${elementName}:`, err));
 
     const element = document.createElement(elementName);
