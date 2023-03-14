@@ -15,11 +15,6 @@ export class AppComponent implements OnInit {
   constructor(private router: Router) { }
 
   ngOnInit(): void {
-    window.addEventListener('eventFromMfe', (customEvent: CustomEvent) => {
-      const { detail } = customEvent || {}
-      console.log('data from custom event', JSON.stringify(detail));
-    });
-
     this.router.navigateByUrl(location.pathname.substr(1));
     window.addEventListener('popstate', () => {
       this.router.navigateByUrl(location.pathname.substr(1));

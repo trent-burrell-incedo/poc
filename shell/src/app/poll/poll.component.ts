@@ -1,4 +1,5 @@
 import { Component, OnInit, OnDestroy } from '@angular/core';
+import { fromEvent } from 'rxjs';
 
 @Component({
   selector: 'app-poll',
@@ -6,8 +7,7 @@ import { Component, OnInit, OnDestroy } from '@angular/core';
   styleUrls: ['./poll.component.css']
 })
 export class PollComponent implements OnInit, OnDestroy {
-
-  userName: string = 'abcde';
+  title: string;
 
   constructor() { }
 
@@ -16,8 +16,15 @@ export class PollComponent implements OnInit, OnDestroy {
       this.importJS('native-shim');
       this.importJS('framework-poll');
     }
+    fromEvent(window, 'event').subscribe((event)=>{
+      this.title = `Current logged in User is ${event['detail']}`;
+      // const myAngularElement = document.createElement('app-framework-poll');
+      //  myAngularElement['userDetail'] = 'John';
+      //  document.getElementById('my-container').appendChild(myAngularElement);
+    })
   }
 
+ 
   ngOnDestroy(): void {
     this.remoteJS('native-shim');
     this.remoteJS('framework-poll');

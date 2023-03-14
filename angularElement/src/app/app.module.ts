@@ -16,12 +16,13 @@ import { FrameworkPollComponent } from './framework-poll/framework-poll.componen
   entryComponents: [
     FrameworkPollComponent
   ],
+  // bootstrap: [AppComponent],
   providers: [],
 })
 export class AppModule {
   constructor(private injector: Injector) { }
   ngDoBootstrap() {
-    const el = createCustomElement(FrameworkPollComponent, { injector: this.injector });
+    const el = createCustomElement(FrameworkPollComponent, { injector: this.injector});
     if (!customElements.get('framework-poll')) {
       customElements.define('framework-poll', el);
     }
