@@ -13,9 +13,14 @@ export class AppComponent {
 
   title = 'shell';
   currentDate = new Date();
-  sendData(){
-    const event  = new CustomEvent('event', {detail: 'LPL Business User'} );
+  constructor(
+  ) {
+  }
+
+
+  sendData() {
+    const event = new CustomEvent('event', { detail: 'LPL Business User' });
     dispatchEvent(event);
   }
-  
+
 }

@@ -1,17 +1,19 @@
-import { BrowserModule } from '@angular/platform-browser';
 import { NgModule } from '@angular/core';
+import { BrowserModule } from '@angular/platform-browser';
 
-import { AppComponent } from './app.component';
 import { RouterModule } from '@angular/router';
+import { MfeLibraryV1Module } from 'mfe-library-v1';
+import { AppComponent } from './app.component';
+import { ComponentShareModule } from './components/component-share.module';
 import { HomeComponent } from './home/home.component';
 import { startsWith } from './router.utils';
 import { WrapperComponent } from './wrapper/wrapper.component';
-import { MfeLibraryV1Module } from 'mfe-library-v1';
 
 @NgModule({
   imports: [
     BrowserModule,
     MfeLibraryV1Module,
+    ComponentShareModule,
     RouterModule.forRoot([
       { path: '', component: HomeComponent, pathMatch: 'full' },
       { matcher: startsWith('mfe1'), component: WrapperComponent, data: { importName: 'mfe1', elementName: 'mfe1-element' } },
