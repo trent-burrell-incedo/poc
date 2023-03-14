@@ -8,13 +8,15 @@ import { fromEvent } from 'rxjs';
 })
 export class FrameworkPollComponent implements OnInit {
   title: any;
-  // @Input() userDetail:any;
+  @Input() userDetail: any;
 
+
+  ngVersion = '6.1.0';
   constructor() { }
   ngOnInit() {
     // this.title = this.userDetail;
 
-    fromEvent(window, 'event').subscribe((event)=>{
+    fromEvent(window, 'event').subscribe((event) => {
       this.title = `Current logged in User is ${event['detail']}`;
       // const myAngularElement = document.createElement('app-framework-poll');
       //  myAngularElement['userDetail'] = 'John';
