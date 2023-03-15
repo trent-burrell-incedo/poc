@@ -1,4 +1,4 @@
-import { Component, Input, OnInit } from '@angular/core';
+import { Component, Input, OnChanges, OnInit, SimpleChanges } from '@angular/core';
 import { fromEvent } from 'rxjs';
 
 @Component({
@@ -6,7 +6,7 @@ import { fromEvent } from 'rxjs';
   templateUrl: './framework-poll.component.html',
   styleUrls: ['./framework-poll.component.css']
 })
-export class FrameworkPollComponent implements OnInit {
+export class FrameworkPollComponent implements OnInit, OnChanges {
   title: any;
   @Input() userDetail: any;
 
@@ -14,14 +14,10 @@ export class FrameworkPollComponent implements OnInit {
   ngVersion = '6.1.0';
   constructor() { }
   ngOnInit() {
-    // this.title = this.userDetail;
+  }
 
-    fromEvent(window, 'event').subscribe((event) => {
-      this.title = `Current logged in User is ${event['detail']}`;
-      // const myAngularElement = document.createElement('app-framework-poll');
-      //  myAngularElement['userDetail'] = 'John';
-      //  document.getElementById('my-container').appendChild(myAngularElement);
-    })
+  ngOnChanges(_changes: SimpleChanges): void {
+    this.title = this.userDetail;
   }
 
 }

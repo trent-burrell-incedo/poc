@@ -12,7 +12,7 @@ export class TopNavComponent {
   menuList: menu[] = [
     {
       title: 'Overview',
-      link: '',
+      link: 'poll',
     },
     {
       title: 'Account',

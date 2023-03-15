@@ -7,7 +7,7 @@ import { fromEvent } from 'rxjs';
   styleUrls: ['./poll.component.css']
 })
 export class PollComponent implements OnInit, OnDestroy {
-  title: string;
+  title: string = 'test';
 
   constructor() { }
 
@@ -16,15 +16,32 @@ export class PollComponent implements OnInit, OnDestroy {
       this.importJS('native-shim');
       this.importJS('framework-poll');
     }
-    fromEvent(window, 'event').subscribe((event)=>{
+
+    fromEvent(window, 'event').subscribe((event) => {
       this.title = `Current logged in User is ${event['detail']}`;
-      // const myAngularElement = document.createElement('app-framework-poll');
-      //  myAngularElement['userDetail'] = 'John';
-      //  document.getElementById('my-container').appendChild(myAngularElement);
-    })
+      this.updateData();
+    });
   }
 
- 
+  updateData() {
+    if (document.getElementById('mycontainer')) {
+
+      const myAngularElement = document.getElementById('mycontainer');
+      console.log('myAngularElement', myAngularElement);
+      const el = document.createElement('framework-poll');
+      el['userDetail'] = this.title;
+      myAngularElement.appendChild(el);
+
+      const polls = document.getElementsByTagName('framework-poll');
+      if (polls.length > 1) {
+        for (let i = 1; i < polls.length; i++) {
+          polls[i].remove();
+        }
+      }
+    }
+  }
+
+
   ngOnDestroy(): void {
     this.remoteJS('native-shim');
     this.remoteJS('framework-poll');
